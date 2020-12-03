@@ -4,7 +4,8 @@
   "description": "",
   "main": "src/server.ts",
   "scripts": {
-    "build": "rm -rf build/ && prettier --write src/ && tsc"
+    "build": "rm -rf build/ && prettier --write src/ && tsc",
+    "start:dev": "nodemon src/server.ts"
   },
   "repository": {
     "type": "git",
