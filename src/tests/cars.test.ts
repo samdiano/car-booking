@@ -27,7 +27,7 @@ describe('Users', () => {
     it('Should validate token', (done) => {
         chai.request(server)
             .get('/api/v1/cars')
-            .set("x-auth-token", token+"oo")
+            .set("x-auth-token", token + "oo")
             .end((err, res) => {
                 expect(res.status).to.equal(400);
                 expect(res.body).to.have.property('message').equal('Invalid token');
