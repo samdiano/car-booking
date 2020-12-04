@@ -5,6 +5,9 @@ import express from 'express';
 import logging from './config/logging';
 import config from './config/config';
 import userRoutes from './routes/user';
+import carRoutes from './routes/car';
+import validateToken from './middlewares/validateToken';
+
 
 const NAMESPACE = 'Server';
 const router = express();
@@ -32,6 +35,7 @@ router.use((req, res, next) => {
 });
 
 router.use('/api/v1/auth', userRoutes);
+router.use('/api/v1/', validateToken, carRoutes);
 
 /** Error handling */
 router.use((req, res, next) => {
