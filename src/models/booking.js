@@ -17,7 +17,11 @@ module.exports = (sequelize, DataTypes) => {
     }
     Booking.init(
         {
-            pickupLocation: DataTypes.STRING
+            pickupLocation: DataTypes.STRING,
+            pickupTime: DataTypes.TIME,
+            pickupDate: DataTypes.DATE,
+            carId: DataTypes.INTEGER,
+            userId: DataTypes.INTEGER
         },
         {
             sequelize,

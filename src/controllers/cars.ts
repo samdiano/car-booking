@@ -10,8 +10,6 @@ interface Car {
 }
 
 const getCars = (req: Request, res: Response) => {
-
-
     models.Car.findAll()
         .then(cars => {
             return res.status(200).json({

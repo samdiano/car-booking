@@ -5,7 +5,7 @@ import server from '../server';
 
 chai.use(chaiHttp);
 
-describe('Users', () => {
+describe('Cars', () => {
     const token = jwt.sign({
         "id": 1,
         "firstName": "Kleon",
