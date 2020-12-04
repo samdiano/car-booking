@@ -6,6 +6,7 @@ import logging from './config/logging';
 import config from './config/config';
 import userRoutes from './routes/user';
 import carRoutes from './routes/car';
+import bookingRoutes from './routes/bookings';
 import validateToken from './middlewares/validateToken';
 
 
@@ -36,6 +37,7 @@ router.use((req, res, next) => {
 
 router.use('/api/v1/auth', userRoutes);
 router.use('/api/v1/', validateToken, carRoutes);
+router.use('/api/v1/', validateToken, bookingRoutes);
 
 /** Error handling */
 router.use((req, res, next) => {
