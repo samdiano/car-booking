@@ -2,7 +2,7 @@ import { NextFunction, Request, Response } from 'express';
 import models from '../models';
 import jwt from 'jsonwebtoken';
 
-interface user {
+interface User {
     firstName: string;
     lastName: string;
     email: string;
@@ -27,7 +27,7 @@ const signIn = (req: Request, res: Response) => {
         });
     }
 
-    models.User.findOne({ where: { email: req.body.email } }).then((user: user) => {
+    models.User.findOne({ where: { email: req.body.email } }).then((user: User) => {
         if (!user) {
             return res.status(400).json({ message: 'Invalid Email' });
         }

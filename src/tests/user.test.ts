@@ -54,7 +54,7 @@ describe('Users', () => {
             .send(wrongUser)
             .end((err, res) => {
                 expect(res.status).to.equal(400);
-                expect(res.body).to.have.property('message').equal('Email Invalid');
+                expect(res.body).to.have.property('message').equal('Invalid Email');
                 done();
             });
     });
