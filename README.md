@@ -68,7 +68,7 @@ You can run `npm run start:dev` in development to use [Nodemon](https://nodemon.
 * After installing as shown above
 * Navigate to [localhost:8000](http://localhost:8000/) in
   [Postman](https://getpostman.com/) to access the application
-* Use the [API Documentation](https://car-bookingz.herokuapp.com/api/v1/docs) to access the endpoints available
+* Use the [API Documentation](https://car-bookingz.herokuapp.com/docs) to access the endpoints available
 
 #### Testing with Coverage Data
 

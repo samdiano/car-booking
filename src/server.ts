@@ -15,7 +15,7 @@ const router = express();
 
 
 const apiDoc = YAML.load(`${process.cwd()}/swagger.yaml`);
-router.use('api/v1/docs', swaggerUi.serve, swaggerUi.setup(apiDoc));
+router.use('/docs', swaggerUi.serve, swaggerUi.setup(apiDoc));
 
 
 /** Log the request */
