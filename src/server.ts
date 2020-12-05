@@ -7,9 +7,16 @@ import userRoutes from './routes/user';
 import carRoutes from './routes/car';
 import bookingRoutes from './routes/bookings';
 import validateToken from './middlewares/validateToken';
+import swaggerUi from 'swagger-ui-express';
+import YAML from 'yamljs';
 
 const NAMESPACE = 'Server';
 const router = express();
+
+
+const apiDoc = YAML.load(`${process.cwd()}/swagger.yaml`);
+router.use('api/v1/docs', swaggerUi.serve, swaggerUi.setup(apiDoc));
+
 
 /** Log the request */
 router.use((req, res, next) => {
