@@ -18,11 +18,38 @@ const createBooking = (req, res) => {
         userId: req.user.id,
     };
     models.Booking.create(booking).then((booking) => {
-        return res.status(201).send({
+        booking.addUser(req.user.id)
+    })
+        .then(() => {
+            return res.status(201).send({
+                success: 'true',
+                message: 'Booking added successfully',
+                data: booking,
+            });
+        });
+}
+
+const getBookings = (req, res) => {
+    const id = req.user.id;
+
+    models.User.findAll({
+        include: [{
+            model: models.Booking,
+            required: false,
+            attributes: ['id', 'pickupLocation', 'pickupTime', 'pickupDate'],
+            through: { attributes: [] },
+            include:[{
+                model: models.Car,
+                as:"car"
+            }]
+        }],
+        where: { id }
+    }).then((booking) => {
+        return res.status(200).send({
             success: 'true',
-            message: 'Booking added successfully',
+            message: 'Booking retrieved successfully',
             data: booking,
         });
     });
 }
-export default { createBooking };
+export default { createBooking, getBookings };
