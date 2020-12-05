@@ -58,6 +58,7 @@ describe('BookingsUsers', () => {
             .end((err, res) => {
                 expect(res.status).to.equal(200);
                 expect(res.body).to.have.property('message').equal('Booking retrieved successfully');
+                
                 done();
             });
     });
