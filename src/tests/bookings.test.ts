@@ -51,5 +51,16 @@ describe('BookingsUsers', () => {
             });
     });
 
+    it('Should get user bookings', (done) => {
+        chai.request(server)
+            .get('/api/v1/bookings')
+            .set("x-auth-token", token)
+            .end((err, res) => {
+                expect(res.status).to.equal(200);
+                expect(res.body).to.have.property('message').equal('Booking retrieved successfully');
+                
+                done();
+            });
+    });
 }
 )
