@@ -1,4 +1,4 @@
-import  chai, { expect } from 'chai';
+import chai, { expect } from 'chai';
 import jwt from 'jsonwebtoken';
 import chaiHttp from 'chai-http';
 import server from '../server';
@@ -58,5 +58,4 @@ describe('Users', () => {
                 done();
             });
     });
-}
-)
+});

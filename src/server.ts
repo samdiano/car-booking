@@ -1,4 +1,3 @@
-
 import http from 'http';
 import bodyParser from 'body-parser';
 import express from 'express';
@@ -8,7 +7,6 @@ import userRoutes from './routes/user';
 import carRoutes from './routes/car';
 import bookingRoutes from './routes/bookings';
 import validateToken from './middlewares/validateToken';
-
 
 const NAMESPACE = 'Server';
 const router = express();
