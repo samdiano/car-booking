@@ -32,12 +32,30 @@ paths:
       - "application/xml"
       - "application/json"
       parameters:
-      - in: "body"
-        name: "body"
-        description: "place car bookingt"
-        required: true
-        schema:
-          $ref: "#/definitions/Bookings"
+        - name: "pickupDate"
+          description: "The date of pickup"
+          in: "body"
+          required: true
+          schema:
+            $ref: "#/definitions/Bookings"
+        - name: "pickupTime"
+          description: "The time of pickup"
+          in: "body"
+          required: true
+          schema:
+            $ref: "#/definitions/Bookings"
+        - name: "pickupLocation"
+          description: "The location to pickup"
+          in: "body"
+          required: true
+          schema:
+            $ref: "#/definitions/Bookings"
+        - name: "carId"
+          description: "The id of the car to be booked"
+          in: "body"
+          required: true
+          schema:
+            $ref: "#/definitions/Bookings"
       responses:
         "200":
           description: "successful operation"
@@ -90,12 +108,13 @@ paths:
       - "booking"
       summary: "Gets all user bookings"
       description: ""
+      
       security:
       - api_key: []
       produces:
       - "application/xml"
       - "application/json"
-     
+       
       responses:
         "200":
           description: "successful operation"
