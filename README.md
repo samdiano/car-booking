@@ -43,7 +43,7 @@ Documentation is hosted at [https://car-bookingz.herokuapp.com/api/v1/docs](http
 
 * Install [NodeJS](https://nodejs.org/) and [PostgreSQL](https://www.postgresql.org/) on your computer
 * Install [Sequelize-CLI](https://www.npmjs.com/package/sequelize-cli) globally
-* Clone this repository using `git clone https://github.com/iverenshaguy/book-a-meal.git`
+* Clone this repository
 * Use the `.env.sample` file to setup your environmental variables and rename the file to `.env`
 * Run `npm install` to install all dependencies
 * Run `npm run migrate` to setup your database
