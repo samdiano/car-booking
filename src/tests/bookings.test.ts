@@ -31,7 +31,7 @@ describe('BookingsUsers', () => {
 
     it('Should create a new booking', (done) => {
         chai.request(server)
-            .post('/api/v1/bookings')
+            .post('/api/v1/bookings/create')
             .send(validRequest)
             .set('x-auth-token', token)
             .end((err, res) => {
@@ -43,7 +43,7 @@ describe('BookingsUsers', () => {
 
     it('Should throw error for incomplete fields', (done) => {
         chai.request(server)
-            .post('/api/v1/bookings')
+            .post('/api/v1/bookings/create')
             .send(incompleteRequest)
             .set('x-auth-token', token)
             .end((err, res) => {

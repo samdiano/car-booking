@@ -1,0 +1,194 @@
+swagger: "2.0"
+info:
+  description: "This is a simple car booking api"
+  version: "1.0.0"
+  title: "Car Booking API"
+  contact:
+    email: "samuegeorge58@gmail.com"
+    
+host: "car-bookingz.herokuapp.com"
+basePath: "/api/v1"
+tags:
+- name: "Cars"
+  description: "Car operations"
+- name: "user"
+  description: "Operations on user"
+- name: "booking"
+  description: "Booking operations"
+schemes:
+- "https"
+- "http"
+paths:
+
+  /bookings/create:
+    post:
+      tags:
+      - "booking"
+      summary: "Book a car"
+      description: ""
+      security:
+      - api_key: []
+      produces:
+      - "application/xml"
+      - "application/json"
+      parameters:
+      - in: "body"
+        name: "body"
+        description: "place car bookingt"
+        required: true
+        schema:
+          $ref: "#/definitions/Bookings"
+      responses:
+        "200":
+          description: "successful operation"
+          schema:
+            $ref: "#/definitions/Bookings"
+        "400":
+          description: "Invalid Fields"
+  
+  /auth/login:
+    post:
+      tags:
+      - "user"
+      summary: "Logs user into the system"
+      description: ""
+      
+      parameters:
+      - name: "email"
+        description: "The email for login"
+        in: "body"
+        required: true
+        schema:
+          $ref: "#/definitions/User"
+      responses:
+        "200":
+          description: "successful operation"
+          schema:
+            type: "string"
+        "400":
+          description: "Invalid email supplied"
+  /cars:
+    get:
+      tags:
+      - "Cars"
+      summary: "Gets all cars in the system"
+      description: ""
+      security:
+      - api_key: []
+      produces:
+      - "application/xml"
+      - "application/json"
+     
+      responses:
+        "200":
+          description: "successful operation"
+          schema:
+            type: "string"
+  /bookings:
+    get:
+      tags:
+      - "booking"
+      summary: "Gets all user bookings"
+      description: ""
+      security:
+      - api_key: []
+      produces:
+      - "application/xml"
+      - "application/json"
+     
+      responses:
+        "200":
+          description: "successful operation"
+          schema:
+            type: "string"
+securityDefinitions:
+  api_key:
+    type: "apiKey"
+    name: "x-auth-token"
+    in: "header"
+definitions:
+  Bookings:
+    type: "object"
+
+    properties:
+      id:
+        type: "integer"
+        format: "int64"
+    
+      pickupLocation:
+        type: "string"
+      pickupTime:
+        type: "string"
+        format: "time"
+      pickupDate:
+        type: "string"
+        format: "date"
+      carId:
+        type: "integer"
+      userId:
+        type: "integer"
+      
+    xml:
+      name: "Booking"
+      
+  Cars:
+    type: "object"
+    properties:
+      id:
+        type: "integer"
+        format: "int64"
+    
+      name:
+        type: "string"
+      model:
+        type: "string"
+      year:
+        type: "integer"
+      VIN:
+        type: "string"
+      price:
+        type: "string"
+      image:
+        type: "string"
+      
+    xml:
+      name: "Booking"
+  User:
+    type: "object"
+    properties:
+      id:
+        type: "integer"
+        format: "int64"
+      firstName:
+        type: "string"
+      lastName:
+        type: "string"
+      email:
+        type: "string"
+    xml:
+      name: "User"
+  
+  UserBookings:
+    type: "object"
+    properties:
+      id:
+        type: "integer"
+        format: "int64"
+      userId:
+        type: "integer"
+      bookingId:
+        type: "integer"
+    xml:
+      name: "UserBooking"
+  
+
+  ApiResponse:
+    type: "object"
+    properties:
+      code:
+        type: "integer"
+        format: "int32"
+      type:
+        type: "string"
+      message:
+        type: "string"
