@@ -32,35 +32,15 @@ paths:
       - "application/xml"
       - "application/json"
       parameters:
-        - name: "pickupDate"
-          description: "The date of pickup"
-          in: "body"
-          required: true
-          schema:
-            $ref: "#/definitions/Bookings"
-        - name: "pickupTime"
-          description: "The time of pickup"
-          in: "body"
-          required: true
-          schema:
-            $ref: "#/definitions/Bookings"
-        - name: "pickupLocation"
-          description: "The location to pickup"
-          in: "body"
-          required: true
-          schema:
-            $ref: "#/definitions/Bookings"
-        - name: "carId"
-          description: "The id of the car to be booked"
-          in: "body"
-          required: true
-          schema:
-            $ref: "#/definitions/Bookings"
+      - in: "body"
+        name: "body"
+        description: "place car bookingt"
+        required: true
+        schema:
+          $ref: "#/definitions/Bookings"
       responses:
         "200":
           description: "successful operation"
-          schema:
-            $ref: "#/definitions/Bookings"
         "400":
           description: "Invalid Fields"
   
@@ -91,8 +71,6 @@ paths:
       - "Cars"
       summary: "Gets all cars in the system"
       description: ""
-      security:
-      - api_key: []
       produces:
       - "application/xml"
       - "application/json"
@@ -101,20 +79,17 @@ paths:
         "200":
           description: "successful operation"
           schema:
-            type: "string"
+            $ref: "#/definitions/Cars"
   /bookings:
     get:
       tags:
       - "booking"
       summary: "Gets all user bookings"
       description: ""
-      
-      security:
-      - api_key: []
       produces:
       - "application/xml"
       - "application/json"
-       
+     
       responses:
         "200":
           description: "successful operation"
